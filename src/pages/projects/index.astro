@@ -1,0 +1,74 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Title from "../../components/Title.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectsCard from "../../components/ProjectsCard.astro";
+import SideProjectCard from "../../components/sideProjectCard.astro";
+import NavBar from "../../components/NavBar.astro";
+---
+
+<Layout title="fox's projects">
+  <div id="outer-container">
+    <div id="inner-container">
+      <NavBar />
+      <h1>~/projects/</h1>
+      <div id="cards">
+        <!-- <ProjectsCard
+          name="foxeats"
+          description="A vegetarian cooking website sprung up from a distaste for how most recipe/cooking blogs are operated, with the poor UI/UX and ads and all that."
+          link="https://foxeats.com"
+          icons={["devicon-nextjs-plain", "devicon-mongodb-plain", "devicon-vercel-original"]}
+        /> -->
+        <div id="sideprojects">
+          <SideProjectCard
+            name="foxqr"
+            description="A QR code generator for the browser"
+            link="https://qr.falsefox.dev"
+            icons={[
+              "devicon-astro-plain",
+              "devicon-vercel-original",
+            ]}
+          />
+          <SideProjectCard
+          name="falsefox.dev"
+          description="A personal website, portfolio and blog in astro."
+          link="https://falsefox.dev"
+          icons={[
+            "devicon-astro-plain",
+            "devicon-vercel-original",
+          ]}
+        />
+        </div>
+      </div>
+    </div>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  #outer-container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #inner-container {
+    max-width: 45em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  #sideprojects {
+    display: flex;
+    column-gap: 1em;
+  }
+  #cards {
+    max-width: 45em;
+    row-gap: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    row-gap: 1em;
+  }
+</style>

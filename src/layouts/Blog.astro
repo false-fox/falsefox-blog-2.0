@@ -1,0 +1,113 @@
+---
+const { frontmatter } = Astro.props;
+import Layout from "./Layout.astro";
+import Footer from "../components/Footer.astro";
+import { SEO } from "astro-seo";
+import NavBar from "../components/NavBar.astro";
+
+let date2 = new Date(frontmatter.pubDate);
+let formatted = date2.toLocaleDateString("en-US", { timeZone: "PST" });
+---
+
+<Layout title={frontmatter.title}>
+  <head slot="head">
+    <SEO
+      title={frontmatter.title}
+      description={frontmatter.description}
+      openGraph={{
+        basic: {
+          title: `${frontmatter.title}`,
+          type: "article",
+          image: "https://falsefox.dev" + `${frontmatter.image}`,
+        },
+        optional: {
+          siteName: "falsefox.dev",
+        },
+        article: {
+          publishedTime: `${frontmatter.pubDate}`,
+          authors: [`${frontmatter.author}`],
+          tags: frontmatter.tags,
+          section: "Technology",
+        },
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+      }}
+    />
+  </head>
+  <div id="outer-container">
+    <div id="inner-container">
+      <NavBar />
+      <div id="content">
+        <h1>{frontmatter.title}</h1>
+        <div id="content">
+          <slot />
+        </div>
+        <br><br>
+        <div id="details">
+          <div id="deet">
+            <h3>Post Details</h3>
+            <ul>
+              <li>
+                <b>Date:</b>
+                {formatted}
+              </li>
+              <li>
+                <b>Author:</b>
+                {frontmatter.author}
+              </li>
+              <li>
+                <b>Tags:</b>
+                {frontmatter.tags.join(", ")}
+              </li>
+            </ul>
+          </div>
+          <div id="deet">
+              <h3>A word</h3>
+              <p>Thanks for checking out my blog and readin this post. I'm falsefox, if you're new check my <a href="/#">main page</a>.</p>
+          </div>
+        </div>
+        <br><br>
+        <h2>Comments?</h2>
+        <script
+          src="https://utteranc.es/client.js"
+          repo="false-fox/blog-comments"
+          issue-term="title"
+          label="comment"
+          theme="github-dark"
+          crossorigin="anonymous"
+          async></script>
+      </div>
+      <Footer />
+    </div>
+  </div>
+</Layout>
+<style lang="less">
+  #details {
+    display: flex;
+    justify-content: space-between;
+  }
+  #content {
+    font-size: 1.05em;
+  }
+  #deet {
+    background-color: rgb(256 256 256 / 2%);
+    padding-left: 1em;
+    padding-right: 1em;
+    border: 2px solid rgb(80, 80, 80);
+    border-radius: 4px;
+    max-width: 20em;
+  }
+  #outer-container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #inner-container {
+    max-width: 45em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+</style>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  name: any;
+  date: any;
+  url: any;
+}
+
+const { name, date, url } = Astro.props;
+
+
+let date2 = new Date(date)
+let formatted = date2.toLocaleDateString("en-US", {timeZone: 'PST'})
+---
+
+<a href={url}>
+  <div>
+    <p class="name">{name}</p>
+    <p class="date">{formatted}</p>
+  </div>
+  <hr /></a
+>
+
+<style>
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  a:visited {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    p {
+      margin-bottom: 6px;
+      margin-top: 6px;
+    }
+   
+  }
+  div:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  hr {
+    margin: 0px;
+    border: none;
+    border-top: 1px solid rgb(41, 41, 41);
+  }
+  .date {
+    font-family: monospace;
+    font-size: 1.1em;
+    color: rgb(28, 238, 0);
+  }
+</style>

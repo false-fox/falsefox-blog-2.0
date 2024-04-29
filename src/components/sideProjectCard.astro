@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  link: string;
+  icons: Array<string>;
+}
+
+const { name, description, link, icons } = Astro.props;
+---
+
+<main>
+  <h3><a target="_blank" href={link}>{name}</a></h3>
+  <p id="projecttype">side project</p>
+  <p id="subtext">{description}</p>
+  <div class="devicon">{icons.map((icon) => <i class={icon} />)}</div>
+</main>
+
+<style>
+    #projecttype {
+        margin: 0px;
+        color: orange;
+        font-size: small;
+        font-style: italic;
+    }
+  .devicon {
+    display: flex;
+    column-gap: 16px;
+  }
+  #subtext {
+    margin-top: 0px
+  }
+  a {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+  main {
+    max-width: 18em;
+    background-color: rgb(256 256 256 / 4%);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+</style>

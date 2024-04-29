@@ -1,0 +1,79 @@
+<main>
+  <div id="buttons">
+    <a href="/" id="home"><img src="/icona/computer.svg" /><p>~/</p></a>
+    <a href="/blog/"
+      ><img src="/icona/x-office-adress-book.svg" /><p>~/blog/</p></a
+    >
+    <a href="/projects/"
+      ><img src="/icona/emblem-system.svg" /> <p>~/projects/</p></a
+    >
+    <!-- <a href="/contact/"
+      ><img src="/icona/mail-send-receive.svg" /> <p>~/contact/</p></a
+    > -->
+  </div>
+  <div id="options">
+    <!-- <button id="darkmode">
+      <img src="/icona/weather-clear.svg" />
+    </button> -->
+  </div>
+</main>
+
+<style lang="less">
+  #home {
+    color: rgb(37, 255, 37);
+  }
+  #darkmode {
+    border: 2px solid grey;
+    border-radius: 4px;
+    transition: background-color 100ms ease-in-out;
+    img {
+      width: 23px;
+      filter: brightness(2);
+    }
+  }
+
+  #buttons {
+    display: flex;
+    column-gap: 1em;
+    img {
+      max-width: 24px;
+      margin-left: 6px;
+    }
+  }
+  main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+  }
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0.25em;
+    padding-right: 0.5em;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(80, 80, 80);
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    transition: all 100ms ease-in-out;
+  }
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: rgb(256 256 256 / 15%);
+      text-decoration: underline;
+    
+  }
+  a:active {
+    background: white;
+  }
+</style>

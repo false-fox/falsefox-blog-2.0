@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import NavBar from "../../components/NavBar.astro";
+---
+
+<Layout title="fox's contact info">
+  <div id="outer-container">
+    <div id="inner-container">
+      <NavBar />
+      <h1>~/contact/</h1>
+      <p>
+        If you want to contact me, you can use email and email me at <b>me@</b> followed by my website's domain, <b>falsefox.dev</b>
+      </p>
+      
+    </div>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  #outer-container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #inner-container {
+    width: 45em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  #cards {
+    max-width: 45em;
+  }
+</style>

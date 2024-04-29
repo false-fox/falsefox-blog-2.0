@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: string;
+  author: string;
+  url: string;
+ 
+}
+const { title, description, pubDate, author, url } = Astro.props;
+
+let date = new Date(pubDate)
+let formatted = date.toLocaleDateString("en-US", {timeZone: 'PST'})
+
+---
+
+<main>
+    <p id="header"><a href={url}>{title}</a></p>
+    <p>{formatted}</p>
+    <!-- <p id="subtext">{description}</p> -->
+</main>
+
+<style>
+  .devicon {
+    display: flex;
+    column-gap: 16px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  main {
+    max-width: 35em;
+    background-color: rgb(256 256 256 / 4%);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: 1.1em;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  #header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 1em;
+  }
+
+</style>

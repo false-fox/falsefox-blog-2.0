@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+const allPosts = await Astro.glob("../posts/*/*.md");
+import NavBar from "../../components/NavBar.astro";
+import PostCard from "../../components/PostCard.astro";
+---
+
+<Layout title="fox's blog">
+  <div id="outer-container">
+    <div id="inner-container">
+      <NavBar />
+      <h1>~/blog/</h1>
+      <div id="cards">
+        {
+          allPosts.map((post) => (
+            <PostCard
+              url={post.url}
+              name={post.frontmatter.title}
+              date={post.frontmatter.pubDate}
+            />
+          ))
+        }
+      </div>
+    </div>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  #outer-container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #inner-container {
+    /*cheap fix, removel ater*/
+    width: 90%;
+    max-width: 45em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  #cards {
+    max-width: 45em;
+  }
+</style>
