@@ -9,7 +9,7 @@ let date2 = new Date(frontmatter.pubDate);
 let formatted = date2.toLocaleDateString("en-US", { timeZone: "PST" });
 ---
 
-<Layout title={frontmatter.title}>
+<Layout title={frontmatter.title} description={frontmatter.description}>
   <head slot="head">
     <SEO
       title={frontmatter.title}

@@ -2,7 +2,7 @@
 title: "A new website! And a loveletter to astro."
 layout: ../../../layouts/Blog.astro
 pubDate: 1714354964056
-description: "A journey to get a rotary phone from goodwill to place and recieve phone calls in 2024. I ended up with my own enterprise-level phone system."
+description: "With a new design and better functionality, falsefox.dev is BACK with a fresh coat of paint."
 author: "falsefox"
 tags: ["webdev", "blog", "astro"]
 image: ""
