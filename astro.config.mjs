@@ -8,9 +8,9 @@ import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://falsefox.dev",
   integrations: [expressiveCode({
     themes: ['dark-plus'],
-    site: "https://falsefox.dev",
     plugins: [pluginLineNumbers()],
     styleOverrides: {
       codeFontFamily: "var(--codeFontFamily)",
